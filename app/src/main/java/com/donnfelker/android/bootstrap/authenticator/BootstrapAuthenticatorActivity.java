@@ -16,6 +16,7 @@ import static com.donnfelker.android.bootstrap.core.Constants.Http.PARSE_REST_AP
 import static com.donnfelker.android.bootstrap.core.Constants.Http.URL_AUTH;
 import static com.github.kevinsawicki.http.HttpRequest.get;
 import static com.github.kevinsawicki.http.HttpRequest.post;
+import android.R;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Dialog;
@@ -53,6 +54,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.googlecode.androidannotations.annotations.EActivity;
 import roboguice.inject.InjectView;
 import roboguice.util.Ln;
 import roboguice.util.RoboAsyncTask;
@@ -64,6 +66,7 @@ import static com.donnfelker.android.bootstrap.core.Constants.Http.PASSWORD;
 /**
  * Activity to authenticate the user against an API (example API on Parse.com)
  */
+@EActivity(layout.login_activity)
 public class BootstrapAuthenticatorActivity extends
         RoboSherlockAccountAuthenticatorActivity {
 
@@ -105,7 +108,7 @@ public class BootstrapAuthenticatorActivity extends
     private String authToken;
     private String authTokenType;
 
-    /**
+    /** abc
      * If set we are just checking that the user knows their credentials; this
      * doesn't cause the user's password to be changed on the device.
      */
@@ -139,8 +142,6 @@ public class BootstrapAuthenticatorActivity extends
         requestNewAccount = email == null;
         confirmCredentials = intent.getBooleanExtra(PARAM_CONFIRMCREDENTIALS,
                 false);
-
-        setContentView(layout.login_activity);
 
         emailText.setAdapter(new ArrayAdapter<String>(this,
                 simple_dropdown_item_1line, userEmailAccounts()));

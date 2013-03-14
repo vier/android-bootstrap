@@ -10,9 +10,11 @@ import com.donnfelker.android.bootstrap.core.AvatarLoader;
 import com.donnfelker.android.bootstrap.core.User;
 import com.google.inject.Inject;
 
+import com.googlecode.androidannotations.annotations.EActivity;
 import roboguice.inject.InjectExtra;
 import roboguice.inject.InjectView;
 
+@EActivity(R.layout.user_view)
 public class UserActivity extends BootstrapActivity {
 
     @InjectView(R.id.iv_avatar) protected ImageView avatar;
@@ -25,8 +27,6 @@ public class UserActivity extends BootstrapActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.user_view);
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
