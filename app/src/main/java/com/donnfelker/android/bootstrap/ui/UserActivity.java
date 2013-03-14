@@ -11,14 +11,15 @@ import com.donnfelker.android.bootstrap.core.User;
 import com.google.inject.Inject;
 
 import com.googlecode.androidannotations.annotations.EActivity;
+import com.googlecode.androidannotations.annotations.ViewById;
 import roboguice.inject.InjectExtra;
 import roboguice.inject.InjectView;
 
 @EActivity(R.layout.user_view)
 public class UserActivity extends BootstrapActivity {
 
-    @InjectView(R.id.iv_avatar) protected ImageView avatar;
-    @InjectView(R.id.tv_name) protected TextView name;
+    @ViewById(R.id.iv_avatar) protected ImageView avatar;
+    @ViewById(R.id.tv_name) protected TextView name;
 
     @InjectExtra(USER) protected User user;
 
