@@ -8,6 +8,8 @@ import android.app.Application;
 import android.app.Instrumentation;
 import android.content.Context;
 
+import android.content.Intent;
+import com.donnfelker.android.bootstrap.service.StartupService;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
@@ -43,6 +45,8 @@ public class BootstrapApplication extends Application {
         super.onCreate();
 
         setApplicationInjector(this);
+
+        startService(new Intent(this, StartupService.class));
     }
 
     /**
